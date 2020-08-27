@@ -1,0 +1,42 @@
+[
+    {
+        "title": 1,
+        "price": 1000
+    },
+    {
+        "title": 2,
+        "price": 2000
+    },
+    {
+        "title": 3,
+        "price": 3000
+    },
+    {
+        "title": 4,
+        "price": 4000
+    },
+    {
+        "title": 5,
+        "price": 5000
+    },
+    {
+        "title": 6,
+        "price": 6000
+    },
+    {
+        "title": 7,
+        "price": 7000
+    },
+    {
+        "title": 8,
+        "price": 8000
+    },
+    {
+        "title": 9,
+        "price": 9000
+    },
+    {
+        "title": 0,
+        "price": 10000
+    }
+]
