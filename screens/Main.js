@@ -12,6 +12,11 @@ const Main = props => {
         props.useTotal(tempTotal)
     }
 
+    const numberPressed = (slot) => {
+        props.useSlotPressed(slot);
+        props.useShowNumber(true)
+    }
+
 
     return (
         <View style={styles.container}>
@@ -20,11 +25,11 @@ const Main = props => {
                 <Text style={styles.text}>{props.total}</Text>
             </View>
             <View style={styles.math}>
-                <TouchableOpacity onPress={() => props.useShowNumber(true)}>
+                <TouchableOpacity onPress={() => numberPressed('slot1')}>
                     <Text style={styles.text}>{props.slotOne}</Text>
                 </TouchableOpacity>
                 <Text style={styles.text}>+</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => numberPressed('slot2')}>
                     <Text style={styles.text}>{props.slotTwo}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.equalButton} onPress={equalPressed}>

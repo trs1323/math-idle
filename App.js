@@ -14,16 +14,17 @@ export default function App() {
   const [slotTwo, useSlotTwo] = useState(1);
   const [showShop, useShowShop] = useState(false);
   const [showNumbers, useShowNumber] = useState(false);
+  const [slotPressed, useSlotPressed] = useState();
 
 
   let content;
 
   if (showShop === false && showNumbers === false) {
-    content = <Main slotOne={slotOne} slotTwo={slotTwo} total={total} useTotal={useTotal} useShowShop={useShowShop} useShowNumber={useShowNumber} />
+    content = <Main slotOne={slotOne} slotTwo={slotTwo} total={total} useTotal={useTotal} useShowShop={useShowShop} useShowNumber={useShowNumber} useSlotPressed={useSlotPressed} />
   } else if (showShop === true) {
     content = <Shop total={total} useTotal={useTotal} useShowShop={useShowShop} />
   } else if (showNumbers === true) {
-    content = <Numbers useShowNumber={useShowNumber} />
+    content = <Numbers useShowNumber={useShowNumber} useSlotOne={useSlotOne} useSlotTwo={useSlotTwo} slotPressed={slotPressed} />
   }
 
 
