@@ -18,6 +18,8 @@ const Main = props => {
     }
 
 
+
+
     return (
         <View style={styles.container}>
             <View style={styles.total}>
@@ -26,17 +28,20 @@ const Main = props => {
             </View>
             <View style={styles.math}>
                 <TouchableOpacity onPress={() => numberPressed('slot1')}>
-                    <Text style={styles.text}>{props.slotOne}</Text>
+                    <Text style={styles.clickableText}>{props.slotOne}</Text>
                 </TouchableOpacity>
                 <Text style={styles.text}>+</Text>
                 <TouchableOpacity onPress={() => numberPressed('slot2')}>
-                    <Text style={styles.text}>{props.slotTwo}</Text>
+                    <Text style={styles.clickableText}>{props.slotTwo}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.equalButton} onPress={equalPressed}>
                     <Text >=</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.shop}>
+                <TouchableOpacity style={styles.shopButton} >
+                    <Text>Combine Numbers</Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.shopButton} onPress={() => props.useShowShop(true)}>
                     <Text>Shop</Text>
                 </TouchableOpacity>
@@ -71,6 +76,12 @@ const styles = StyleSheet.create({
         fontSize: 30,
 
     },
+    clickableText: {
+        color: '#fff',
+        fontSize: 30,
+        borderBottomColor: 'white',
+        borderBottomWidth: 1
+    },
     equalButton: {
         borderColor: '#757575',
         borderWidth: 2,
@@ -84,10 +95,13 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderStyle: 'solid',
         backgroundColor: 'white',
-        padding: 10
+        padding: 10,
+        marginHorizontal: 10
     },
     shop: {
         marginBottom: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     }
 });
 

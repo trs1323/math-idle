@@ -3,17 +3,19 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native
 
 import ShopItems from '../ShopItems.json'
 
-const Item = ({ item }) => (
-    <View style={styles.itemContainer}>
-        <Text style={styles.text}>{item.title}</Text>
-        <Text style={styles.text}>{item.price}</Text>
-        <TouchableOpacity style={styles.buyButton} data={item.price}>
-            <Text >Buy</Text>
-        </TouchableOpacity>
-    </View>
-);
+
 
 const Shop = props => {
+
+    const Item = ({ item }) => (
+        <View style={styles.itemContainer}>
+            <Text style={styles.text}>{item.title}</Text>
+            <Text style={styles.text}>{item.price}</Text>
+            <TouchableOpacity style={styles.buyButton} data={item.price} onPress={() => buyItem(item.price, item.title)}>
+                <Text >Buy</Text>
+            </TouchableOpacity>
+        </View>
+    );
 
     const renderItem = ({ item }) => {
 
@@ -24,6 +26,34 @@ const Shop = props => {
             />
         );
     };
+
+    const buyItem = (price, item) => {
+        if (props.total >= price) {
+            props.useTotal(props.total - price);
+            alert(`You bought the number ${item}`);
+            if (item === 0) {
+                props.setNumber0(props.number0 + 1)
+            } else if (item === 1) {
+                props.setNumber1(props.number1 + 1)
+            } else if (item === 2) {
+                props.setNumber2(props.number2 + 1)
+            } else if (item === 3) {
+                props.setNumber3(props.number3 + 1)
+            } else if (item === 4) {
+                props.setNumber4(props.number4 + 1)
+            } else if (item === 5) {
+                props.setNumber5(props.number5 + 1)
+            } else if (item === 6) {
+                props.setNumber6(props.number6 + 1)
+            } else if (item === 7) {
+                props.setNumber7(props.number7 + 1)
+            } else if (item === 8) {
+                props.setNumber8(props.number8 + 1)
+            } else if (item === 9) {
+                props.setNumber9(props.number9 + 1)
+            }
+        }
+    }
 
 
     return (
@@ -41,7 +71,7 @@ const Shop = props => {
                 <FlatList
                     data={ShopItems}
                     renderItem={renderItem}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.price}
 
                 />
             </View>
